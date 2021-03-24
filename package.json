@@ -1,0 +1,22 @@
+{
+  "name": "el-html",
+  "version": "0.1.0",
+  "license": "MIT",
+  "module": "dist/el-html.js",
+  "scripts": {
+    "dev": "NODE_ENV=development node build.js",
+    "build": "NODE_ENV=production node build.js"
+  },
+  "dependencies": {
+    "@types/stylis": "^4.0.0",
+    "@vue/reactivity": "^3.0.7",
+    "clsx": "^1.1.1",
+    "htm": "^3.0.4",
+    "preact": "^10.5.13",
+    "stylis": "^4.0.8"
+  },
+  "devDependencies": {
+    "esbuild": "^0.9.6",
+    "tslib": "^2.1.0"
+  }
+}

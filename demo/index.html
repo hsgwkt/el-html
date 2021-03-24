@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>el-html demo</title>
+
+<x-counter label="example"></x-counter>
+
+<script type="module">
+import { defineElement, html, props, view, reactive } from '../dist/el-html.js'
+
+defineElement('x-counter', (el) => {
+  props(el, {
+    label: 'count',
+  })
+
+  const state = reactive({
+    count: 0,
+  })
+
+  function increment() {
+    state.count++
+  }
+
+  function decrement() {
+    state.count--
+  }
+
+  view(el, () => html`
+    <div class=${['counter', { invalid: state.count > 10 }]}>
+      ${el.label}: ${state.count}
+    </div>
+    <button onClick=${increment}>+</button>
+    <button onClick=${decrement}>-</button>
+
+    <style>
+    .counter {
+      color: green;
+
+      &.invalid {
+        color: red;
+      }
+    }
+    </style>
+  `)
+})
+</script>
